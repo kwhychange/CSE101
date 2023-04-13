@@ -1,0 +1,24 @@
+---program description---
+
+List.c is a linked list adt that has all the functions used and how they work
+
+List.h is the header file for list.c
+
+ListTest.c is the program for testing the functions of the list adt
+	-parts of the file is taken from ListClient which is provided by the professor
+
+Lex.c is the main program that takes an input file and an output file 
+the program takes strings from the input file and builds an integer list in alphabetical order and print it to the outfile
+
+Makefile is the instruction commands that sets up the program in linux
+	-file is provided by the professor
+
+README is the description for the programs
+
+---how to run the program---
+
+go into directory with the files above
+type "make" or "make ListTest" to make respective programs
+type ./Lex "input file" "output file" (for Lex)
+type ./ListTest (for ListTest)
+make clean to remove program and .o files
