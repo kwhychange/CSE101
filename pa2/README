@@ -11,6 +11,9 @@ Graph.h is the header file for Graph.c
 GraphTest.c is the program for testing the functions of the Graph and list adt
 	-parts of the file is taken from GraphClient which is provided by the professor
 
+FindPath.c is the main program for reading the in and out file to create and find 
+	the shortest path using adt created
+
 Makefile is the instruction commands that sets up the program in linux
 	-file is provided by the professor
 
