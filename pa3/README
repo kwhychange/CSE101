@@ -1,0 +1,28 @@
+---program description---
+
+List.c is a linked list adt that has all the functions used and how they work
+
+List.h is the header file for list.c
+
+Graph.c is a the Graph adt that contains all the function used and how they work
+
+Graph.h is the header file for Graph.c
+
+GraphTest.c is the program for testing the functions of the Graph and list adt
+	-parts of the file is taken from GraphClient which is provided by the professor
+
+FindComponents.c is the main program for reading the in and out file to create and find 
+	the strong components using adt created
+
+Makefile is the instruction commands that sets up the program in linux
+	-file is provided by the professor
+
+README is the description for the programs
+
+---how to run the program---
+
+go into directory with the files above
+type "make" or "make GraphTest" to make respective programs
+type ./FindComponents "input file" "output file" (for FindComponents)
+type ./GraphTest (for GraphTest)
+make clean to remove program and .o files
