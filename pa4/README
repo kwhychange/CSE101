@@ -1,0 +1,32 @@
+---program description---
+
+List.c is a linked list adt that has all the functions used and how they work
+
+List.h is the header file for list.c
+
+ListTest.c is the program for testing the functions of the List adt
+	-parts of the file is taken from ListClient which is provided by the professor
+
+Matrix.c is a the matrix adt that contains all the function used and how they work
+
+Matrix.h is the header file for Matrix.c
+
+MatrixTest.c is the program for testing the functions of the Matrix adt
+	-parts of the file is taken from MatrixClient which is provided by the professor
+
+Sparse.c is the main program for reading the in and out file to create matrix and 
+	perform calculation on the matrix using the adt
+
+Makefile is the instruction commands that sets up the program in linux
+	-file is provided by the professor
+
+README is the description for the programs
+
+---how to run the program---
+
+go into directory with the files above
+type "make" or "make ListTest" or "make MatrixTest" to make respective programs
+type ./Sparse "input file" "output file" (for Sparse)
+type ./ListTest (for ListTest)
+type ./MatrixTest (for MatrixTest)
+make clean to remove program and .o files
