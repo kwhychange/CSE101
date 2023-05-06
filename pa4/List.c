@@ -393,7 +393,7 @@ void printList(FILE* out, List L){
     }
 
     for(N = L->front; N != NULL; N = N->next){
-        fprintf(out, "%0.1f ", N->data);
+        fprintf(out, "%p ", N->data);
     }
 } // Prints to the file pointed to by out, a
  // string representation of L consisting
