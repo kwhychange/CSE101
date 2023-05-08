@@ -363,7 +363,7 @@ Matrix product(Matrix A, Matrix B){
 			for (int j = 0; j < B->size; ++j)
 			{
 				List bL = T->rows[j];
-				int prod = 0;
+				double prod = 0;
 				moveFront(aL);
 				moveFront(bL);
 				while(index(aL) != -1 &&index(bL) != -1){
@@ -409,7 +409,7 @@ void printMatrix(FILE* out, Matrix M){
 			moveFront(L);
 			while(index(L) != -1){
 				Entry E = (Entry)get(L);
-				fprintf(out, " (%d, %0.1f)", E->col, E->val);
+				fprintf(out, " (%d, %0.1lf)", E->col, E->val);
 				moveNext(L);
 			}
 			fprintf(out, "\n");
