@@ -157,11 +157,11 @@ void changeEntry(Matrix M, int i, int j, double x){
 		printf("Matrix Error: calling changeEntry() on NULL Matrix reference\n");
 		exit(EXIT_FAILURE);
 	}
-	List L = M->rows[i-1];
 	if (1 > i || i > size(M) || 1 > j || j > size(M)){
 		printf("Matrix Error: calling changeEntry() on invalid precondition\n");
 		exit(EXIT_FAILURE);
 	} 
+	List L = M->rows[i-1];
 	if (x != 0){
 		if (length(L) == 0){
 			append(L, newEntry(j, x));
