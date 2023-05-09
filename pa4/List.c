@@ -312,25 +312,26 @@ void insertAfter(List L, void* x){
  // Pre: length()>0, index()>=0
 
 void deleteFront(List L){
-    Node N = NULL;
     if(L==NULL){
         printf("List Error: calling deleteFront() on NULL List reference\n");
         exit(EXIT_FAILURE);
     }
-    N = L->front;
     if(length(L)>1){
+        Node N = L->front;
         if (L->cursor == N){
             L->cursor = NULL;
         }
         L->front = L->front->next;
         L->front->prev = NULL;
         L->index--;
+        L->length--;
+        freeNode(&N);
     } else {
+        freeNode(&L->front);
         L->front = L->back = L->cursor = NULL;
         L->index = -1;
+        L->length--;
     }
-    L->length--;
-    freeNode(&N);
 } // Delete the front element. Pre: length()>0
 
 void deleteBack(List L){
@@ -374,6 +375,7 @@ void delete(List L){
     if (length(L)==1){
         freeNode(&L->front);
         L->front = L->back = NULL;
+        L->length--;
     } else if(N == L->front){
         deleteFront(L);
     } else if(N == L->back){
@@ -381,9 +383,9 @@ void delete(List L){
     } else {
         N->prev->next = N->next;
         N->next->prev = N->prev;
+        L->length--;
         freeNode(&N);
     }
-    L->length--;
     L->index = -1;
 } // Delete cursor element, making cursor undefined.
  // Pre: length()>0, index()>=0
