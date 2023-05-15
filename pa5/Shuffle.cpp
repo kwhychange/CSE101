@@ -12,6 +12,7 @@ pa5
 using namespace std;
 
 void shuffle(List& D){
+	//split the deck
 	List A, B;
 	D.moveFront();
 	for (int i = 0; i < D.length() / 2; ++i)
@@ -24,6 +25,7 @@ void shuffle(List& D){
 		B.insertBefore(D.peekNext());
 		D.moveNext();
 	}
+	//clear the original deck and put the 2 split deck together
 	D.clear();
 	A.moveFront();
 	B.moveFront();
@@ -45,33 +47,35 @@ int main(int argc, char* argv[]){
     	exit(EXIT_FAILURE);
     }
 
-    //read int
-    int decksize = atoi(argv[1]);
+    //read max decksize
+    int max = atoi(argv[1]);
     List L, J;
 
     cout << "deck size       shuffle count" << endl;
     cout << "------------------------------" << endl;
 
-    int s = 0;
-    int i = 0, k;
+    int shufCount = 0;
+    int deckSize = 0;
+    int i = 0;
 
-    while(i < decksize){
-    	s = k = 0;
-    	while(k < (i + 1)){
-    		L.insertBefore(k);
-    		J.insertBefore(k);
-    		k++;
+    //perform perfect shuffle for respective deck size
+    while(deckSize < max){
+    	shufCount = i = 0;
+    	while(i < (deckSize + 1)){
+    		L.insertBefore(i);
+    		J.insertBefore(i);
+    		i++;
     	}
     	shuffle(L);
-    	s++;
-    	while(!(L == J)){
+    	shufCount++;
+    	while(!(L == J)){ //shuffle until perfect shuffle
     		shuffle(L);
-    		s++;
+    		shufCount++;
     	}
-    	cout << " " << i + 1 << "		" << s << endl;
+    	cout << " " << deckSize + 1 << "		" << shufCount << endl;
     	L.clear();
     	J.clear();
-    	i++;
+    	deckSize++;
     }
     return 0;
 }

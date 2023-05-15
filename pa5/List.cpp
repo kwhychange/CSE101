@@ -305,7 +305,6 @@ void List::cleanup(){
 	while(N != backDummy){
 		moveFront();
 		findNext(N->data);
-		//if (N->next != backDummy){
 		while (tempCursor != -1 && N->next != backDummy){
 			tempCursor = findNext(N->data);
 			if (pos_cursor <= saveCursor){
@@ -315,7 +314,6 @@ void List::cleanup(){
 				eraseBefore();
 			}
 		}
-		//}
 		N = frontDummy->next;
 		count++;
 		for (tempCursor = 0; tempCursor < count; ++tempCursor)
