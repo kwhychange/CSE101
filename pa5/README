@@ -1,0 +1,23 @@
+---program description---
+
+List.cpp is a linked list adt that has all the functions used and how they work
+
+List.h is the header file for list.c
+
+ListTest.cpp is the program for testing the functions of the List adt
+	-parts of the file is taken from ListClient which is provided by the professor
+
+Shuffle.cpp is the main program for performing the perfect shuffle the using the adt
+
+Makefile is the instruction commands that sets up the program in linux
+	-file is provided by the professor
+
+README is the description for the programs
+
+---how to run the program---
+
+go into directory with the files above
+type "make" or "make ListTest" or "make MatrixTest" to make respective programs
+type ./Shuffle "input file" (for Shuffle)
+type ./ListTest (for ListTest)
+make clean to remove program and .o files
