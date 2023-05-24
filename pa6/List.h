@@ -1,3 +1,8 @@
+/*
+Ko-Wei Chang
+kochang
+pa6
+*/
 //-----------------------------------------------------------------------------
 // List.h
 // Header file for List ADT. List is a double ended queue with a vertical
