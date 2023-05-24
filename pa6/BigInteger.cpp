@@ -50,20 +50,34 @@ BigInteger::BigInteger(std::string s){
 	}
 	if (s[0] == '+'){
 		signum = 1; 
-		s.substr(1, s.length());
 	}
 	if (s[0] == '-'){
 		signum = -1;
-		s.substr(1, s.length());
 	} else {
 		signum = 1;
 	}
 	
-	for (char c : s){
-		if (!isdigit(c) && c != '-' && c != '+'){
+	if (s[0] != '+' && s[0] != '-')
+	{
+		for (char c : s){
+			if (!isdigit(c)){ 
+				throw std::invalid_argument("BigInteger: Constructor: non-numeric string");
+			}
+		}
+	} else {
+		string test = "";
+		if (s.length() != 1) {
+			test = s.substr(1, s.length());
+			for (char c : test){
+				if (!isdigit(c)){ 
+					throw std::invalid_argument("BigInteger: Constructor: non-numeric string");
+				}
+			}
+		} else {
 			throw std::invalid_argument("BigInteger: Constructor: non-numeric string");
 		}
 	}
+
 	int i = s.length() - POWER;
 	while(i > 0)
 	{

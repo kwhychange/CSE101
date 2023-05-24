@@ -12,12 +12,12 @@ pa6
 using namespace std;
 
 int main(){
-   BigInteger A = BigInteger("+111122223333");
-   BigInteger B = BigInteger("-111122223333");
-   A += B;
-   cout << A << endl;
-   cout << A.sign() << endl;
-/*
+   // BigInteger A = BigInteger("+111122223333");
+   // BigInteger B = BigInteger("-111122223333");
+   // A += B;
+   // cout << A << endl;
+   // cout << A.sign() << endl;
+
    string s1 = "91287346670000043892345634563400005619187236478";
    //string s2 = "-330293847502398475";
    string s3 = "9876545439000000345634560000000002000034565430000000006543654365346534";
@@ -101,7 +101,7 @@ int main(){
       cout << "   continuing without interruption" << endl;
    }
 
-   cout << endl;*/
+   cout << endl;
 
    return EXIT_SUCCESS;
 }
