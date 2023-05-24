@@ -65,7 +65,6 @@ BigInteger::BigInteger(std::string s){
 		}
 	}
 	int i = s.length() - POWER;
-	// cout << "string " << i << endl;
 	while(i > 0)
 	{
 		digits.insertAfter(stol(s.substr(i, POWER)));
@@ -76,7 +75,10 @@ BigInteger::BigInteger(std::string s){
 	} else if (i == 0){
 		digits.insertAfter(stol(s.substr(i, POWER)));
 	}
-	// cout << digits << " what"<< endl;
+	digits.moveFront();
+	while(digits.peekNext() == 0 && digits.length() > 1){
+		digits.eraseAfter();
+	}
 }
 
 // BigInteger()
@@ -309,7 +311,7 @@ BigInteger BigInteger::sub(const BigInteger& N) const{
 	BigInteger M;
 	BigInteger negN = N;
 	// if (N.signum == -1){
-		negateList(negN.digits);
+	negateList(negN.digits);
 	// }
 	M = this->add(negN);
 	return M;

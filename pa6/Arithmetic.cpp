@@ -24,7 +24,7 @@ int main(int argc, char* argv[]){
     infile.open(argv[1], ios::in);
     outfile.open(argv[2], ios::out);
     if (!infile.is_open()){
-    	cerr << "UUnable to open input file:" << argv[1] << endl;
+    	cerr << "Unable to open input file:" << argv[1] << endl;
     	exit(EXIT_FAILURE);
     }
     if (!outfile.is_open()){
