@@ -292,7 +292,6 @@ BigInteger BigInteger::add(const BigInteger& N) const{
 		negateList(B);
 	}
 	sumList(sum, A, B, 1);
-	// cout << sum << endl;
 	M.signum = normalizeList(sum);
 	M.digits = sum;
 	return M;

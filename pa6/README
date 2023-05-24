@@ -1,0 +1,31 @@
+---program description---
+
+List.cpp is a linked list adt that has all the functions used and how they work
+
+List.h is the header file for list.cpp
+
+ListTest.cpp is the program for testing the functions of the List adt
+	-parts of the file is taken from ListClient which is provided by the professor
+
+BigInteger.cpp is the ADT for the BigInteger functions and how they work
+
+BigInteger.h is the header file for BigInteger.cpp
+
+BigIntegerTest.cpp is the program for testing the function of the BigInteger.cpp
+	-parts of the file is taken from BigIntegerClient which is provided by the professor
+
+Arithmetic.cpp is the main program for performing the BigInteger calculation the using the adt
+
+Makefile is the instruction commands that sets up the program in linux
+	-file is provided by the professor
+
+README is the description for the programs
+
+---how to run the program---
+
+go into directory with the files above
+type "make" or "make ListTest" or "make BigIntegerTest" to make respective programs
+type ./Arithmetic "input file" "output file" (for Arithmetic)
+type ./ListTest (for ListTest)
+type ./BigIntegerTest (for BigIntegerTest)
+make clean to remove program and .o files
