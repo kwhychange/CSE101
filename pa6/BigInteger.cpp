@@ -71,7 +71,11 @@ BigInteger::BigInteger(std::string s){
 		i -= POWER;
 	}
 	if (i < 0) {
-		digits.insertAfter(stol(s.substr(0, i + POWER)));
+		if (s[0] == '+' || s[0] == '-') {
+			digits.insertAfter(stol(s.substr(1, i + POWER -1)));
+		} else {
+			digits.insertAfter(stol(s.substr(0, i + POWER)));
+		}
 	} else if (i == 0){
 		digits.insertAfter(stol(s.substr(i, POWER)));
 	}
@@ -235,23 +239,23 @@ int normalizeList(List& L){
 		negateList(L);
 		sign = -1;
 	}
-	ListElement x = 0;
+	long val = 0;
 	long carry = 0;
 	L.moveBack();
 	while(L.position() > 0){
-		x = L.peekPrev();
-		if (x < 0){
-			x += BASE + carry;
-			L.setBefore(x);
+		val = L.peekPrev();
+		if (val < 0){
+			val += BASE + carry;
+			L.setBefore(val);
 			carry = -1;
 		} else {
-			x += carry;
+			val += carry;
 			carry = 0;
-			if (x >= BASE){
-				carry = x/BASE;
-				x = x % BASE;
+			if (val >= BASE){
+				carry = val/BASE;
+				val = val % BASE;
 			}
-			L.setBefore(x);
+			L.setBefore(val);
 		}
 		L.movePrev();
 	}
@@ -281,17 +285,6 @@ BigInteger BigInteger::add(const BigInteger& N) const{
 	List A = this->digits;
 	List B = N.digits;
 	List sum;
-	// if(this->signum == 1 && N.signum == -1){
-	// 	sumList(sum, A, B, -1);
-	// }
-	// if(this->signum == -1 && N.signum == 1){
-	// 	negateList(A);
-	// 	sumList(sum, A, B, 1);
-	// }
-	// if(this->signum == -1 && N.signum == -1){
-	// 	negateList(A);
-	// 	sumList(sum, A, B, -1);
-	// }
 	if(this->signum == -1){
 		negateList(A);
 	}
@@ -310,9 +303,7 @@ BigInteger BigInteger::add(const BigInteger& N) const{
 BigInteger BigInteger::sub(const BigInteger& N) const{
 	BigInteger M;
 	BigInteger negN = N;
-	// if (N.signum == -1){
 	negateList(negN.digits);
-	// }
 	M = this->add(negN);
 	return M;
 }
