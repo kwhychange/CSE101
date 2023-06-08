@@ -9,6 +9,9 @@ DictionaryTest.cpp is the program for testing the functions of the Dictionary ad
 
 Order.cpp is the main program for displaying the BST orders the using the adt
 
+WordFrequency.cpp is the other main program for reading the texts from a input file
+	the using the adt
+
 Makefile is the instruction commands that sets up the program in linux
 	-file is provided by the professor
 
@@ -17,7 +20,8 @@ README is the description for the programs
 ---how to run the program---
 
 go into directory with the files above
-type "make" or "make DictionaryTest" to make respective programs
+type "make" or "make Order" or "make DictionaryTest" to make respective programs
 type ./Order "input file" "output file" (for Order)
+type ./WordFrequency "input" "output" (for Wordfrequency)
 type ./DictionaryTest (for DictionaryTest)
 make clean to remove program and .o files
