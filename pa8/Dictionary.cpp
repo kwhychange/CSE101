@@ -49,31 +49,40 @@ void Dictionary::preOrderString(std::string& s, Node* R) const{
 // BST_insert()
 // Inserts a copy of the Node *M into this Dictionary. Used by preOrderCopy().
 void Dictionary::BST_insert(Node* M){
-	// Node* X = root;
-	// Node* Y = nil;
-	// M->right = M->left = nil;
-	// M->color = RED;
+	Node* X = root;
+    Node* Y = nil;
 
-	// while(X != nil){
-	// 	Y = X;
-	// 	if (M->key < X->key){
-	// 		X = X->left;
-	// 	} else {
-	// 		X = X->right;
-	// 	}
-	// }
-	// M->parent = Y;
-	// if(Y == nil){
-	// 	root = M;
-	// 	num_pairs++;
-	// } else if (M->key < Y->key){
-	// 	Y->left = M;
-	// 	num_pairs++;
-	// } else if (M->key > Y->key){
-	// 	Y->right = M;
-	// 	num_pairs++;
-	// } 
-	// RB_InsertFixUp(M);
+    while (X != nil) {
+        Y = X;
+        if (M->key < X->key) {
+            X = X->left;
+        }
+        else {
+            X = X->right;
+        }
+    }
+    M->parent = Y;
+    if (Y == nil) {
+        root = M;
+        num_pairs++;
+    }
+    else if (M->key < Y->key) {
+        Y->left = M;
+        num_pairs++;
+    }
+    else if (M->key > Y->key) {
+        Y->right = M;
+        num_pairs++;
+    }
+    else {
+        Y->val = M->val;
+        return;
+    }    
+
+    M->left = nil;
+    M->right = nil;
+    M->color = RED;
+    RB_InsertFixUp(M);
 }
 
 // preOrderCopy()
@@ -83,7 +92,6 @@ void Dictionary::preOrderCopy(Node* R, Node* N){
 	if(R != N){
 		// BST_insert(R);
 		setValue(R->key, R->val);
-		cout << R->key << " key " << R->color << "col" << endl;
 		preOrderCopy(R->left, N);
 		preOrderCopy(R->right, N);
 	}
@@ -125,8 +133,6 @@ Dictionary::Node* Dictionary::findMin(Node* R){
 		throw logic_error("Dictionary: findMin(): subtree given is rooted at nil");
 	}
 	while(R->left != nil){
-		// cout << R->left->key << " R "<< R->right->key << " P "<< R->parent->key << endl;
-		// cout << R->left->left->key << endl;
 		R = R->left;
 	}
 	return R;
@@ -512,8 +518,6 @@ void Dictionary::remove(keyType k){
 		throw logic_error("Dictionary: remove(): key \"" + k + "\" does not exist");
 	}
 	Node* N = search(root, k);
-	// Node* test = findMin(N);
-	// cout << "what is min " << test->key << endl;
 	if (N == current){
 		current = nil;
 	}
