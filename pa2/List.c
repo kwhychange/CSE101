@@ -361,14 +361,20 @@ void delete(List L){
         printf("List Error: calling delete() on NULL List reference\n");
         exit(EXIT_FAILURE);
     }
-    if (L->cursor == NULL || index(L)<0){
+    if (L->cursor == NULL || index(L) < 0){
         printf("List Error: calling delete() on NULL cursor reference\n");
         exit(EXIT_FAILURE);
+    }
+    if (L->length <= 0){
+        printf("List Error: calling delete() on invalid precondition\n");
+        exit(EXIT_FAILURE);   
     }
     N = L->cursor;
     L->cursor = NULL;
     if (length(L)==1){
+        freeNode(&L->front);
         L->front = L->back = NULL;
+        L->length--;
     } else if(N == L->front){
         deleteFront(L);
     } else if(N == L->back){
@@ -376,9 +382,9 @@ void delete(List L){
     } else {
         N->prev->next = N->next;
         N->next->prev = N->prev;
+        L->length--;
+        freeNode(&N);
     }
-    freeNode(&N);
-    L->length--;
     L->index = -1;
 } // Delete cursor element, making cursor undefined.
  // Pre: length()>0, index()>=0
